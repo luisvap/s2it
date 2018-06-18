@@ -1,69 +1,49 @@
 package br.com.s2it;
 
+import java.util.Scanner;
+
 public class Main {
 
+	private static int algoritmo(int a, int b){
+		long c = 0;
+		
+		String stringA = String.valueOf(a);
+		String stringB = String.valueOf(b);
+		
+		StringBuffer stringC = new StringBuffer();
+		for(int i=0; i<6; i++){
+			
+			if(i <= stringA.length()-1)
+			stringC.append(stringA.charAt(i));
+			if(i <= stringB.length()-1)
+			stringC.append(stringB.charAt(i));
+		}
 	
-	public static void main(String args[]){
-		
-		BinaryTree b1 = new BinaryTree();
-		b1.setValor(15);
 		
 		
-		BinaryTree b2 = new BinaryTree();
-		b2.setValor(9);
+		c = Long.valueOf(stringC.toString());
+		if (c > 1000000){
+			System.out.println(c);
+			System.out.println("Nao pode ser maior que 1000000");
+			return -1;
+		}
 		
-		
-		BinaryTree b3 = new BinaryTree();
-		b3.setValor(5);
-		
-		BinaryTree b4 = new BinaryTree();
-		b4.setValor(2);
-		
-		BinaryTree b5 = new BinaryTree();
-		b5.setValor(7);
-		
-		BinaryTree b6 = new BinaryTree();
-		b6.setValor(11);
-		
-		BinaryTree b7 = new BinaryTree();
-		b7.setValor(20);
-		
-		
-		
-		BinaryTree b9 = new BinaryTree();
-		b9.setValor(30);
-		
-		BinaryTree b10 = new BinaryTree();
-		b10.setValor(18);
-		
-		BinaryTree b11 = new BinaryTree();
-		b11.setValor(23);
-		
-		BinaryTree b12 = new BinaryTree();
-		b12.setValor(27);
-		
-		b1.setLeft(b2);
-		b1.setRight(b7);
-		
-		b2.setLeft(b3);
-		b2.setRight(b6);
-		
-		b7.setLeft(b10);
-		b7.setRight(b12);
-		
-		b3.setLeft(b4);
-		b3.setRight(b5);
-		
-		b12.setLeft(b11);
-		b12.setRight(b9);
-		int somaTodosNosSubsquentesB1 = b1.soma();
-		int somaTodosNosSubsquentesB12 = b12.soma();
-	    int somaTodosNosSubsquentesB10 = b10.soma();
-		System.out.println(somaTodosNosSubsquentesB1);
-		System.out.println(somaTodosNosSubsquentesB12);
-		System.out.println(somaTodosNosSubsquentesB10);
+		return (int)c;
 	}
 	
-	
-	
+	public static void main(String[] args) {
+		
+		Scanner s = new Scanner(System.in);
+		System.out.println("Digite primeiro numero inteiro (a):");
+		int a = s.nextInt();
+		System.out.println("Digite segundo numero inteiro (b) :");
+		int b = s.nextInt();
+		
+		
+		int c = algoritmo(a,b);
+		System.out.println("Numero eh: " + c);
+		s.close();
+		
+	}
+
 }
